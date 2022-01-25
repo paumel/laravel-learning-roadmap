@@ -1,5 +1,5 @@
-#Laravel learning roadmap checklist
-###Based on https://github.com/LaravelDaily/Laravel-Roadmap-Learning-Path
+# Laravel learning roadmap checklist
+### Based on https://github.com/LaravelDaily/Laravel-Roadmap-Learning-Path
 
 - To install project run:
 
@@ -54,10 +54,10 @@ sail php artisan key:generate
 sail php artisan migrate --seed
 ```
 
+*You can specify app port by adding APP_PORT variable in your .env file (default port - 80).*
 
----
-You can specify app port by adding APP_PORT variable in your .env file (default port - 80). 
-You can specify database port by adding FORWARD_DB_PORT variable in your .env file (default port - 3306). 
----
+*You can specify database port by adding FORWARD_DB_PORT variable in your .env file (default port - 3306).*
+
+
 
 You are good to go - http://localhost or http://localhost:APP_PORT
