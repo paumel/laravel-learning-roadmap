@@ -26,6 +26,11 @@ class Level extends Model
 
     public function topics(): HasMany
     {
-        return $this->hasMany(Topic::class);
+        return $this->hasMany(Topic::class)->orderBy('position');
+    }
+
+    public function parentTopics(): HasMany
+    {
+        return $this->hasMany(Topic::class)->whereNull('topic_id')->orderBy('position');
     }
 }

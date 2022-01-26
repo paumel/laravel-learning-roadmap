@@ -33,11 +33,11 @@ class Topic extends Model
 
     public function children(): HasMany
     {
-        return $this->hasMany(Topic::class);
+        return $this->hasMany(Topic::class)->orderBy('position');
     }
 
     public function links(): BelongsToMany
     {
-        return $this->belongsToMany(Link::class);
+        return $this->belongsToMany(Link::class)->orderBy('position');
     }
 }
