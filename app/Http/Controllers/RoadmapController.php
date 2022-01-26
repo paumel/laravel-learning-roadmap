@@ -10,13 +10,12 @@ class RoadmapController extends Controller
 {
     public function __invoke(Request $request): \Inertia\Response
     {
-        $levels = Level::orderBy('position')->get();
-        $levels->load([
+        $levels = Level::with([
             'projects',
             'parentTopics.links.type',
-            'parentTopics.children.links.type'
-        ]);
+            'parentTopics.children.links.type',
+        ])->orderBy('position')->get();
 
-        return Inertia::render('Dashboard', compact('levels'));
+        return Inertia::render('Roadmap', compact('levels'));
     }
 }

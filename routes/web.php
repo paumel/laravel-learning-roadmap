@@ -23,8 +23,8 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->middleware(['guest']);
 
-Route::get('/dashboard', RoadmapController::class)->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/roadmap', RoadmapController::class)->middleware(['auth'])->name('roadmap');
 
 require __DIR__.'/auth.php';

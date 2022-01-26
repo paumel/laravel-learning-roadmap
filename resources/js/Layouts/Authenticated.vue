@@ -9,8 +9,8 @@
                             <!-- Logo -->
                             <!-- Navigation Links -->
                             <div class="hidden sm:-my-px sm:flex">
-                                <BreezeNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                <BreezeNavLink :href="route('roadmap')" :active="route().current('roadmap')">
+                                    Roadmap
                                 </BreezeNavLink>
                             </div>
                         </div>
@@ -55,8 +55,8 @@
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <BreezeResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
+                        <BreezeResponsiveNavLink :href="route('roadmap')" :active="route().current('roadmap')">
+                            Roadmap
                         </BreezeResponsiveNavLink>
                     </div>
 
