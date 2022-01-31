@@ -38,7 +38,7 @@
                         <p class="text-xl border-b-2 pt-6" v-if="level.projects.length > 0">Projects</p>
                         <div v-for="project in level.projects" :key="project.id" class="pt-6">
                             <label class="font-bold">
-                                <input type="checkbox">
+                                <input type="checkbox" @click="toggleProject (project.id)" v-model="project.completed">
                                 {{project.name}}
                             </label>
                             <p>{{project.description}}</p>
@@ -62,4 +62,9 @@ const props = defineProps({
 function toggleTopic(id) {
     Inertia.post(route('toggle-topic', id), {}, { preserveScroll: true })
 }
+
+function toggleProject(id) {
+    Inertia.post(route('toggle-project', id), {}, { preserveScroll: true })
+}
+
 </script>

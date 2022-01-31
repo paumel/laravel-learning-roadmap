@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectToggleController;
 use App\Http\Controllers\RoadmapController;
 use App\Http\Controllers\TopicToggleController;
 use Illuminate\Foundation\Application;
@@ -29,6 +30,7 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/roadmap', RoadmapController::class)->name('roadmap');
     Route::post('/topic-toggle/{topic}', TopicToggleController::class)->name('toggle-topic');
+    Route::post('/project-toggle/{project}', ProjectToggleController::class)->name('toggle-project');
 
 });
 
