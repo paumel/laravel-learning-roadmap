@@ -17,7 +17,7 @@
                         <div v-for="parent_topic in level.parent_topics" :key="parent_topic.id" class="pt-8">
                             <div class="flex border-b-2">
                                 <label class="text-xl ">
-                                    <input type="checkbox" v-model="parent_topic.completed" disabled>
+                                    <input type="checkbox" v-model="parent_topic.completed" disabled class="opacity-50 cursor-not-allowed">
                                     {{parent_topic.name}}
                                 </label>
                             </div>

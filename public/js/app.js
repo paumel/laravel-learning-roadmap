@@ -21351,7 +21351,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             "onUpdate:modelValue": function onUpdateModelValue($event) {
               return parent_topic.completed = $event;
             },
-            disabled: ""
+            disabled: "",
+            "class": "opacity-50 cursor-not-allowed"
           }, null, 8
           /* PROPS */
           , _hoisted_8), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, parent_topic.completed]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(parent_topic.name), 1

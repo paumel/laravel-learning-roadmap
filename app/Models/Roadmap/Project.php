@@ -22,11 +22,11 @@ class Project extends Model
     ];
 
     protected $appends = [
-        'completed'
+        'completed',
     ];
 
     protected $with = [
-        'completedByUser'
+        'completedByUser',
     ];
 
     public function level(): BelongsTo
@@ -42,5 +42,19 @@ class Project extends Model
     public function getCompletedAttribute(): bool
     {
         return $this->completedByUser->count() > 0;
+    }
+
+    public function toggle(): void
+    {
+        $completedProject = CompletedProject::where('project_id', $this->id)->where('user_id', Auth::id())->first();
+
+        if ($completedProject) {
+            $completedProject->delete();
+        } else {
+            CompletedProject::create([
+                'user_id' => Auth::id(),
+                'project_id' => $this->id,
+            ]);
+        }
     }
 }

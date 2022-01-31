@@ -65,4 +65,18 @@ class Topic extends Model
         }
         return $this->completedByUser->count() > 0;
     }
+
+    public function toggle(): void
+    {
+        $completedTopic = CompletedTopic::where('topic_id', $this->id)->where('user_id', Auth::id())->first();
+
+        if ($completedTopic) {
+            $completedTopic->delete();
+        } else {
+            CompletedTopic::create([
+                'user_id' => Auth::id(),
+                'topic_id' => $this->id,
+            ]);
+        }
+    }
 }
