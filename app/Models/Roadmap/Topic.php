@@ -2,12 +2,14 @@
 
 namespace App\Models\Roadmap;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 
 class Topic extends Model
 {
@@ -19,6 +21,15 @@ class Topic extends Model
         'topic_id',
         'level_id',
         'position',
+    ];
+
+    protected $appends = [
+        'completed',
+    ];
+
+    protected $with = [
+        'completedByUser',
+        'children',
     ];
 
     public function level(): BelongsTo
@@ -39,5 +50,19 @@ class Topic extends Model
     public function links(): BelongsToMany
     {
         return $this->belongsToMany(Link::class)->orderBy('position');
+    }
+
+    public function completedByUser(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'completed_topics')->where('user_id', Auth::id());
+    }
+
+    public function getCompletedAttribute(): bool
+    {
+        $childrenCount = $this->children->count();
+        if ($childrenCount > 0) {
+            return $childrenCount === $this->children->where('completed', true)->count();
+        }
+        return $this->completedByUser->count() > 0;
     }
 }

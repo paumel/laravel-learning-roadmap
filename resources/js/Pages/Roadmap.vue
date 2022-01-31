@@ -11,20 +11,20 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="text-white bg-gradient-to-r from-violet-500/75 to-fuchsia-500/50 overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 border-b-4" v-for="level in levels" :key="level">
+                    <div class="p-6 border-b-4" v-for="level in props.levels" :key="level">
                         <p class="text-2xl font-extrabold">{{level.name}}</p>
                         <p>{{level.description}}</p>
                         <div v-for="parent_topic in level.parent_topics" :key="parent_topic.id" class="pt-8">
                             <div class="flex border-b-2">
                                 <label class="text-xl ">
-                                    <input type="checkbox">
+                                    <input type="checkbox" v-model="parent_topic.completed" disabled>
                                     {{parent_topic.name}}
                                 </label>
                             </div>
                             <div v-for="topic in parent_topic.children" :key="topic.id" class="flex justify-between items-center border-dashed border-b-2 min-h-fit">
                                 <div>
                                     <label>
-                                        <input type="checkbox">
+                                        <input type="checkbox" @click="toggleTopic(topic.id)" v-model="topic.completed">
                                         {{topic.name}}
                                     </label>
                                 </div>
@@ -50,17 +50,16 @@
     </BreezeAuthenticatedLayout>
 </template>
 
-<script>
+<script setup>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue'
 import { Head } from '@inertiajs/inertia-vue3';
+import { Inertia } from '@inertiajs/inertia';
 
-export default {
-    props:{
-        levels: Array
-    },
-    components: {
-        BreezeAuthenticatedLayout,
-        Head,
-    },
+const props = defineProps({
+    levels: Array
+})
+
+function toggleTopic(id) {
+    Inertia.post(route('toggle-topic', id), {}, { preserveScroll: true })
 }
 </script>

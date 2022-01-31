@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RoadmapController;
+use App\Http\Controllers\TopicToggleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -25,6 +26,11 @@ Route::get('/', function () {
     ]);
 })->middleware(['guest']);
 
-Route::get('/roadmap', RoadmapController::class)->middleware(['auth'])->name('roadmap');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/roadmap', RoadmapController::class)->name('roadmap');
+    Route::post('/topic-toggle/{topic}', TopicToggleController::class)->name('toggle-topic');
+
+});
+
 
 require __DIR__.'/auth.php';

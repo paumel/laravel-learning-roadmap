@@ -739,9 +739,6 @@ select {
 .block {
   display: block;
 }
-.inline-block {
-  display: inline-block;
-}
 .flex {
   display: flex;
 }
@@ -771,12 +768,6 @@ select {
 }
 .h-screen {
   height: 100vh;
-}
-.h-24 {
-  height: 6rem;
-}
-.h-12 {
-  height: 3rem;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -859,9 +850,6 @@ select {
 .items-center {
   align-items: center;
 }
-.justify-start {
-  justify-content: flex-start;
-}
 .justify-end {
   justify-content: flex-end;
 }
@@ -899,10 +887,6 @@ select {
 .border {
   border-width: 1px;
 }
-.border-y-2 {
-  border-top-width: 2px;
-  border-bottom-width: 2px;
-}
 .border-t {
   border-top-width: 1px;
 }
@@ -917,9 +901,6 @@ select {
 }
 .border-b {
   border-bottom-width: 1px;
-}
-.border-t-2 {
-  border-top-width: 2px;
 }
 .border-b-4 {
   border-bottom-width: 4px;
@@ -985,9 +966,6 @@ select {
 }
 .to-fuchsia-600\/75 {
   --tw-gradient-to: rgb(192 38 211 / 0.75);
-}
-.to-fuchsia-500 {
-  --tw-gradient-to: #d946ef;
 }
 .to-fuchsia-500\/50 {
   --tw-gradient-to: rgb(217 70 239 / 0.5);
@@ -1076,18 +1054,6 @@ select {
 .pt-6 {
   padding-top: 1.5rem;
 }
-.pr-6 {
-  padding-right: 1.5rem;
-}
-.pl-6 {
-  padding-left: 1.5rem;
-}
-.pb-4 {
-  padding-bottom: 1rem;
-}
-.pr-2 {
-  padding-right: 0.5rem;
-}
 .text-left {
   text-align: left;
 }
@@ -1096,12 +1062,6 @@ select {
 }
 .text-right {
   text-align: right;
-}
-.align-middle {
-  vertical-align: middle;
-}
-.align-bottom {
-  vertical-align: bottom;
 }
 .font-sans {
   font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -1126,13 +1086,13 @@ select {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
 }
 .font-medium {
   font-weight: 500;
@@ -1140,11 +1100,11 @@ select {
 .font-semibold {
   font-weight: 600;
 }
-.font-bold {
-  font-weight: 700;
-}
 .font-extrabold {
   font-weight: 800;
+}
+.font-bold {
+  font-weight: 700;
 }
 .uppercase {
   text-transform: uppercase;
