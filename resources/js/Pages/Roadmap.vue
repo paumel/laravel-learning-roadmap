@@ -60,11 +60,11 @@ const props = defineProps({
 })
 
 function toggleTopic(id) {
-    Inertia.post(route('toggle-topic', id), {}, { preserveScroll: true })
+    Inertia.post(route('topic-toggle', id), {}, { preserveScroll: true })
 }
 
 function toggleProject(id) {
-    Inertia.post(route('toggle-project', id), {}, { preserveScroll: true })
+    Inertia.post(route('project-toggle', id), {}, { preserveScroll: true })
 }
 
 </script>

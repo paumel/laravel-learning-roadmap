@@ -22,16 +22,13 @@ Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
     ]);
 })->middleware(['guest']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/roadmap', RoadmapController::class)->name('roadmap');
-    Route::post('/topic-toggle/{topic}', TopicToggleController::class)->name('toggle-topic');
-    Route::post('/project-toggle/{project}', ProjectToggleController::class)->name('toggle-project');
-
+    Route::post('/topic-toggle/{topic}', TopicToggleController::class)->name('topic-toggle');
+    Route::post('/project-toggle/{project}', ProjectToggleController::class)->name('project-toggle');
 });
 
 

@@ -18,6 +18,8 @@ class CreateCompletedTopicsTable extends Migration
             $table->foreignId('topic_id');
             $table->foreignId('user_id');
             $table->timestamps();
+
+            $table->unique(['topic_id', 'user_id']);
         });
     }
 

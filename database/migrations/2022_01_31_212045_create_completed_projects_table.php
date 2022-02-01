@@ -18,6 +18,8 @@ class CreateCompletedProjectsTable extends Migration
             $table->foreignId('project_id');
             $table->foreignId('user_id');
             $table->timestamps();
+
+            $table->unique(['project_id', 'user_id']);
         });
     }
 

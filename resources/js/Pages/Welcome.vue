@@ -10,12 +10,12 @@
                 </div>
                 <div class="flex justify-center mt-20">
                     <div>
-                        <Link :href="route('login')" class="text-base text-white py-5 px-10 m-1 rounded-xl bg-gradient-to-r from-violet-500 to-blue-500 hover:from-blue-500 hover:to-violet-500">
+                        <Link v-if="props.canLogin"  :href="route('login')" class="text-base text-white py-5 px-10 m-1 rounded-xl bg-gradient-to-r from-violet-500 to-blue-500 hover:from-blue-500 hover:to-violet-500">
                             Log in
                         </Link>
                     </div>
                     <div>
-                        <Link v-if="canRegister" :href="route('register')" class="text-base text-white py-5 px-10 m-1 rounded-xl bg-gradient-to-r from-violet-500 to-blue-500 hover:from-blue-500 hover:to-violet-500">
+                        <Link v-if="props.canRegister" :href="route('register')" class="text-base text-white py-5 px-10 m-1 rounded-xl bg-gradient-to-r from-violet-500 to-blue-500 hover:from-blue-500 hover:to-violet-500">
                             Register
                         </Link>
                     </div>
@@ -26,19 +26,11 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import {Head, Link} from '@inertiajs/inertia-vue3';
 
-export default {
-    components: {
-        Head,
-        Link,
-    },
-    props: {
-        canLogin: Boolean,
-        canRegister: Boolean,
-        laravelVersion: String,
-        phpVersion: String,
-    },
-}
+const props = defineProps({
+    canLogin: Boolean,
+    canRegister: Boolean,
+})
 </script>
